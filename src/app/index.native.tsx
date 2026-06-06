@@ -49,6 +49,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={BACKGROUND_COLOR} />
+
       <WebView
         ref={webViewRef}
         source={{ uri: PONTO_MAX_WEB_URL }}
@@ -70,19 +71,24 @@ export default function HomeScreen() {
             />
           </View>
         )}
+  
         onLoadStart={() => {
           setHasError(false);
         }}
+  
         onLoadEnd={() => {
           setIsWebViewReady(true);
         }}
+  
         onError={() => {
           setHasError(true);
           setIsWebViewReady(true);
         }}
+  
         onNavigationStateChange={(event) => {
           setCanGoBack(event.canGoBack);
         }}
+       
         onShouldStartLoadWithRequest={(request) => {
           if (
             request.url.startsWith('http://') ||
