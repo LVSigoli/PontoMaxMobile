@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ponto-max-mobile",
+    "name": "PontoMax",
     "slug": "ponto-max-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,11 +28,14 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "android": {
-            "image": "./assets/images/splash-icon.png",
-            "imageWidth": 76
-          }
+          "backgroundColor": "#FFFFFF",
+          "dark": {
+            "backgroundColor": "#0F172A",
+            "image": "./assets/images/splash-icon.png"
+          },
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain"
         }
       ]
     ],
