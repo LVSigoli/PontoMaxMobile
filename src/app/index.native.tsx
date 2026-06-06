@@ -1,7 +1,7 @@
 import * as SplashScreen from 'expo-splash-screen';
+import { Image } from 'expo-image';
 import { useEffect, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
   BackHandler,
   Linking,
   Pressable,
@@ -63,8 +63,11 @@ export default function HomeScreen() {
         startInLoadingState
         renderLoading={() => (
           <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color={BRAND_BLUE} />
-            <Text style={styles.loadingText}>Loading PontoMax</Text>
+            <Image
+              source={require('@/assets/images/splash-icon.png')}
+              style={styles.loadingLogo}
+              contentFit="contain"
+            />
           </View>
         )}
         onLoadStart={() => {
@@ -129,11 +132,9 @@ const styles = StyleSheet.create({
     backgroundColor: BACKGROUND_COLOR,
     justifyContent: 'center',
   },
-  loadingText: {
-    color: '#0F172A',
-    fontSize: 15,
-    fontWeight: '600',
-    marginTop: 14,
+  loadingLogo: {
+    height: 140,
+    width: 140,
   },
   errorOverlay: {
     ...StyleSheet.absoluteFill,
