@@ -1,24 +1,15 @@
 import { Image } from "expo-image";
-import { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 
-import { PONTO_MAX_WEB_URL } from "@/constants/urls";
+import { BACKGROUND_COLOR } from "../constants";
 
-export default function HomeScreen() {
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    window.location.replace(PONTO_MAX_WEB_URL);
-  }, []);
-
+export function LoadingView() {
   return (
     <View style={styles.container}>
       <Image
+        source={require("@/assets/images/splash-icon.png")}
         style={styles.logo}
         contentFit="contain"
-        source={require("@/assets/images/splash-icon.png")}
       />
     </View>
   );
@@ -26,9 +17,9 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    ...StyleSheet.absoluteFill,
     alignItems: "center",
-    backgroundColor: "#FFFFFF",
-    flex: 1,
+    backgroundColor: BACKGROUND_COLOR,
     justifyContent: "center",
   },
   logo: {
